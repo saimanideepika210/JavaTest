@@ -1,0 +1,52 @@
+#include<stdio.h>
+int main(int argc,char *a[]){
+    int n,y,max1=0;
+    int l[3000][4],i,j,u,p;
+    int k=0;
+    int q,w,z,x;
+    for (i=0;i<n-2;i++){
+        k=i;
+        for(j=0;j<3;j++){
+
+            sscanf (a[k],"%d",&l[i][j]);
+            k++;
+        }
+    }
+
+    int total=0;
+    int max =0,f;
+    if(3<=(n/2)){
+    for (q=0;q<n-5;q++){
+        for (f=0;f<3;f++){
+        int z=0,x=2;
+        if(q+3+f >=n-2){
+            break;
+        }
+        total = l[q][z]*l[q+3+f][x]+l[q][z+1]*l[q+3+f][x-1]+l[q][z+2]*l[q+3+f][x-2];
+       
+        if (total>max){
+            max =total;
+        }
+        }
+    }
+     if(max>max1)  max1=max;
+    }
+    if(4<=(n/2)){
+
+     for (q=0;q<n-5;q++){
+        for (f=0;f<4;f++){
+        int z=0,x=3;
+        if(q+4+f >=n-3){
+            break;
+        }
+        total = l[q][z]*l[q+4+f][x]+l[q][z+1]*l[q+4+f][x-1]+l[q][z+2]*l[q+4+f][x-2]+l[q][z+3]*l[q+4+f][x-3];
+       
+        if (total>max){
+            max =total;
+        }
+        }
+    }
+    }if(max>max1)  max1=max;
+    printf("%d",max1);
+    
+}
